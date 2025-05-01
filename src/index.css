@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Staatliches&display=swap');
+@import "tailwindcss";
+
+
+
+/* default */
+:root{
+  /* font-family: var(--font-balooTwo); */
+  color:var(--color-primayDark);
+
+}
+@theme{
+  /* fonts */
+  --font-balooTwo:"Baloo 2", sans-serif;
+  --font-playfair:"Playfair Display", serif;
+  --font-grandHotel: "Grand Hotel", cursive;
+  --font-cal: "Cal Sans", sans-serif;
+  --font-staatliches: "Staatliches", sans-serif;
+
+
+  /* colors */
+  --color-primaryDark: #89151E;     /* Deep red */
+  --color-secondaryLight: #DB9801;  /* Mustard yellow */
+  --color-ternaryWhite: #FEFEFE;    /* Off-white */
+
+   /* Additional retro-inspired colors */
+   --color-retroOrange: #D94F04;     /* Burnt orange */
+   --color-retroTeal: #317873;       /* Vintage teal */
+   --color-retroBrown: #6B4226;      /* Classic brown */
+   --color-retroOlive: #7A8450;      /* Muted olive green */
+   --color-retroBeige: #E5D3B3;      /* Warm beige */
+   --color-retroPink: #D08FA6;       /* Soft dusty pink */
+   --color-retroNavy: #2F3A56;       /* Muted navy blue */
+}
