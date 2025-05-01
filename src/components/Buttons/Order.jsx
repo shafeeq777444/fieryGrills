@@ -8,12 +8,12 @@ const AnimatedButton = () => {
       Order Now
       <span className="relative grid h-6 w-6 shrink-0 place-items-center overflow-hidden rounded-full bg-white transition-transform duration-300">
         <img
-          src="src/assets/deliveryBoy.png"
+          src="/assets/deliveryBoy.png"
           alt="Delivery Icon"
           className="absolute h-[16px] w-[16px] transform transition-transform duration-300 ease-in-out group-hover:translate-x-[150%]"
         />
         <img
-          src="src/assets/man.png"
+          src="/assets/man.png"
           alt="Delivery Icon Hover"
           className="absolute h-[16px] w-[16px] -translate-x-[150%] transform transition-transform duration-300 ease-in-out delay-100 group-hover:translate-x-0"
         />

@@ -47,7 +47,7 @@ export default function SplashScreen() {
             className="z-50"
           >
             <img
-              src={'/src/assets/logo1.png'}
+              src={'/assets/logo1.png'}
               alt="Company Logo"
               className="w-32 h-32  shadow-2xl "
             />

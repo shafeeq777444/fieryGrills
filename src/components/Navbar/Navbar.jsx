@@ -132,7 +132,7 @@ const Navbar = () => {
           className="flex items-center"
         >
           <img 
-            src={scrolled?"src/assets/logo2.png":"src/assets/logo1.png" }
+            src={scrolled?"/assets/logo2.png":"/assets/logo1.png" }
             alt="Tiffin Service Logo" 
             className="h-12 w-12 mr-3 md:h-16 md:w-16 duration-300 transition-all ease-in " 
           />
