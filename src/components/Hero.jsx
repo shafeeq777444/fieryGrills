@@ -12,7 +12,7 @@ const Hero = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1 }}
         className="w-full h-full object-cover"
-        src="/src/assets/hero4.jpg"
+        src="/assets/hero4.jpg"
         alt="Punjab food tiffin"
       />
 
