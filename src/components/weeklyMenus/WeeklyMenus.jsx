@@ -257,12 +257,12 @@ const HorizontalScrollCarousel = () => {
                 <div>
                     <div className="absolute bottom-6 w-full text-center">
                          {/* Date Range */}
-                    <p className="text-amber-700 text-sm mb-2">12-March-25 to 18-March-25</p>
+                    {/* <p className="text-amber-700 text-sm mb-2">12-March-25 to 18-March-25</p> */}
 
 {/* Saturday Note */}
-<p className="text-xs text-amber-600 italic">
+{/* <p className="text-xs text-amber-600 italic">
     *Saturday meals are optional and available only upon request
-</p>
+</p> */}
                     </div>
                 </div>
             </div>
