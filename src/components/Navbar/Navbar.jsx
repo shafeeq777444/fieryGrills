@@ -1,54 +1,4 @@
-// import React, { useState } from "react";
 
-// const Navbar = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <nav className="h-20 bg-transparent fixed  w-full  z-50 shadow-md hidden md:block" style={{ fontFamily: '"Segoe UI", sans-serif' }}>
-//       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-full">
-//         {/* Logo */}
-//         <div className="flex justify-start items-center w-1/3">
-//           <img className="w-16 h-16 object-contain" src="/src/assets/logo1.png" alt="Logo" />
-//         </div>
-//         {/* Left Nav */}
-//         <div className="hidden md:flex gap-20 text-ternaryWhite w-1/3  justify-center text-lg">
-//           <a href="/menu">Menu</a>
-//           <a href="/locations">Locations</a>
-//           <a href="/about">About</a>
-//         </div>
-
-
-//         {/* Call Button */}
-//         <div className="hidden md:flex w-1/3  justify-end items-center" >
-//           <div className="relative flex justify-center rounded items-center bg-black w-40 h-10 ">
-//             <button className="absolute rounded w-40 h-10 -left-1.5 -top-[4px] text-primaryDark bg-ternaryWhite hover:bg-secondaryLight px-8 py-2 border-2 border-black hover:-left-0 hover:-top-0 transition-all duration-300">
-//               Call Now
-//             </button>
-//           </div>
-//         </div>
-
-//         {/* Hamburger */}
-//         <div className="md:hidden flex items-center">
-//           <button onClick={() => setIsOpen(!isOpen)} className="text-2xl text-primaryDark focus:outline-none">
-//             ☰
-//           </button>
-//         </div>
-//       </div>
-
-//       {/* Mobile Menu */}
-//       {isOpen && (
-//         <div className="md:hidden  bg-[#EFDCB4] px-4 pt-4 pb-2 text-primaryDark font-bold">
-//           <a href="/menu" className="block py-2">Menu</a>
-//           <a href="/locations" className="block py-2">Locations</a>
-//           <a href="/about" className="block py-2">About</a>
-//           <button className="mt-4 w-full bg-black text-ternaryWhite py-2 rounded">Call Now</button>
-//         </div>
-//       )}
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
 
 // components/Navbar.jsx
 import React, { useState, useEffect, useRef } from 'react';
@@ -117,10 +67,10 @@ const Navbar = () => {
   return (
     <motion.nav
       ref={navbarRef}
-      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300 ease-in-out bg-[#F3EEE3]
+      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 font-balooTwo font-normal transition-all duration-300 ease-in-out bg-[#F3EEE3]
          ${
         scrolled ? ' bg-opacity-95 shadow-md py-3' : 'bg-transparent'
-      }`}
+      } will-change-[transform,opacity]`}
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay:1.5 }}
@@ -169,7 +119,7 @@ const Navbar = () => {
                       ? 'bg-orange-500 hover:bg-[#DB9801] text-white px-4 py-2 rounded-md' 
                       : `relative ${scrolled ? 'text-gray-800' : 'text-white'} hover:text-[#DB9801]`
                     }
-                    font-medium transition-colors duration-300
+                    font-normal transition-colors duration-300
                   `}
                 >
                   {item.name}

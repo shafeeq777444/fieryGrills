@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Staatliches&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
 
@@ -8,6 +10,7 @@
 :root{
   /* font-family: var(--font-balooTwo); */
   color:var(--color-primayDark);
+  font:var(--font-poppins)
 
 }
 @theme{
@@ -17,6 +20,9 @@
   --font-grandHotel: "Grand Hotel", cursive;
   --font-cal: "Cal Sans", sans-serif;
   --font-staatliches: "Staatliches", sans-serif;
+  --font-Nato: "Noto Sans", sans-serif;
+  --font-Yeesva: "Yeseva One", serif;
+  --font-poppins: "Poppins", sans-serif;
 
 
   /* colors */
@@ -32,4 +38,9 @@
    --color-retroBeige: #E5D3B3;      /* Warm beige */
    --color-retroPink: #D08FA6;       /* Soft dusty pink */
    --color-retroNavy: #2F3A56;       /* Muted navy blue */
+}
+@layer utilities {
+  .font-poppins {
+    font-family: var(--font-poppins);
+  }
 }
