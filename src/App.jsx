@@ -4,22 +4,22 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home'
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import SplashScreen from './components/SplashScreen'
 import MenuPage from './pages/Menu'
 
 function App() {
-  // const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
   
-  // useEffect(() => {
+  useEffect(() => {
     
-  //   const timer = setTimeout(() => setShowSplash(false), 3000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+    const timer = setTimeout(() => setShowSplash(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
-  // if (showSplash) {
-  //   return <SplashScreen />;
-  // }
+  if (showSplash) {
+    return <SplashScreen />;
+  }
   return (
     <>
 
