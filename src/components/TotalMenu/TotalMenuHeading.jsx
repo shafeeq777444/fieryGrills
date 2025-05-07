@@ -2,107 +2,119 @@ import React from "react";
 import VegetarianMenuSection from "./VegMenu";
 
 import HorizontalScrollCarousel from "../weeklyMenus/WeeklyMenus";
+import { useGetAllDishes } from "../../services/Hooks/useMenus";
+import VgAndNonvgMenuSections from "./VgAndNonvgMenuSections";
 
-const punjabiNonVegDishes = [
-    {
-        name: "Butter Chicken",
-        description: "Tender chicken pieces in a rich, creamy tomato gravy with butter and cream.",
-    },
-    {
-        name: "Amritsari Fish",
-        description: "Spiced and battered fish, deep fried to perfection. A Punjabi street food favorite.",
-    },
-    {
-        name: "Delhi Nihari",
-        description: "Slow-cooked meat stew with aromatic spices, traditionally eaten at breakfast.",
-    },
-    {
-        name: "Chicken Korma Curry",
-        description: "Chicken cooked in a rich, yogurt-based gravy with ground nuts and spices.",
-    },
-    {
-        name: "Chicken Saag",
-        description: "Chicken cooked with spinach and spices for a hearty, nutritious dish.",
-    },
-    {
-        name: "Tandoori Chicken",
-        description: "Chicken marinated in yogurt and spices, roasted in a tandoor oven.",
-    },
-    {
-        name: "Egg Spinach Curry",
-        description: "Hard-boiled eggs in a flavorful spinach gravy, rich in nutrients.",
-    },
-    {
-        name: "Chicken Mughlai",
-        description: "Royal preparation of chicken in a rich, creamy sauce with nuts and spices.",
-    },
-];
+// const punjabiNonVegDishes = [
+//     {
+//         name: "Butter Chicken",
+//         description: "Tender chicken pieces in a rich, creamy tomato gravy with butter and cream.",
+//     },
+//     {
+//         name: "Amritsari Fish",
+//         description: "Spiced and battered fish, deep fried to perfection. A Punjabi street food favorite.",
+//     },
+//     {
+//         name: "Delhi Nihari",
+//         description: "Slow-cooked meat stew with aromatic spices, traditionally eaten at breakfast.",
+//     },
+//     {
+//         name: "Chicken Korma Curry",
+//         description: "Chicken cooked in a rich, yogurt-based gravy with ground nuts and spices.",
+//     },
+//     {
+//         name: "Chicken Saag",
+//         description: "Chicken cooked with spinach and spices for a hearty, nutritious dish.",
+//     },
+//     {
+//         name: "Tandoori Chicken",
+//         description: "Chicken marinated in yogurt and spices, roasted in a tandoor oven.",
+//     },
+//     {
+//         name: "Egg Spinach Curry",
+//         description: "Hard-boiled eggs in a flavorful spinach gravy, rich in nutrients.",
+//     },
+//     {
+//         name: "Chicken Mughlai",
+//         description: "Royal preparation of chicken in a rich, creamy sauce with nuts and spices.",
+//     },
+// ];
 
-const punjabiSalads = [
-    {
-        name: "Punjabi Kachumber Salad",
-        description: "Fresh mixture of diced cucumber, tomatoes, onions with lemon juice and spices.",
-    },
-    {
-        name: "Sirka Onion",
-        description: "Red onions pickled in vinegar with spices, a tangy accompaniment.",
-    },
-    {
-        name: "Cucumber and Mint Raita",
-        description: "Cooling yogurt dip with fresh cucumber, mint and roasted cumin.",
-    },
-    {
-        name: "Carrot and Peanut Salad",
-        description: "Crunchy salad with shredded carrots, roasted peanuts and tangy dressing.",
-    },
-    {
-        name: "Boondi Raita",
-        description: "Yogurt mixed with tiny fried gram flour balls and spices.",
-    },
-];
+// const punjabiSalads = [
+//     {
+//         name: "Punjabi Kachumber Salad",
+//         description: "Fresh mixture of diced cucumber, tomatoes, onions with lemon juice and spices.",
+//     },
+//     {
+//         name: "Sirka Onion",
+//         description: "Red onions pickled in vinegar with spices, a tangy accompaniment.",
+//     },
+//     {
+//         name: "Cucumber and Mint Raita",
+//         description: "Cooling yogurt dip with fresh cucumber, mint and roasted cumin.",
+//     },
+//     {
+//         name: "Carrot and Peanut Salad",
+//         description: "Crunchy salad with shredded carrots, roasted peanuts and tangy dressing.",
+//     },
+//     {
+//         name: "Boondi Raita",
+//         description: "Yogurt mixed with tiny fried gram flour balls and spices.",
+//     },
+// ];
 
 // Weekly special menu from the examples provided
-const weeklySpecials = [
-    {
-        day: "Monday",
-        vegDish: "Kadai Paneer Gravy",
-        sideDish: "Aloo Methi",
-        nonVegDish: "Delhi Nihari",
-        accompaniment: "Cucumber and Mint Raita",
-    },
-    {
-        day: "Tuesday",
-        vegDish: "Pancharatna Dal",
-        sideDish: "Sabji Pakoda",
-        nonVegDish: "Chicken Korma Curry",
-        accompaniment: "Carrot and Peanut Salad",
-    },
-    {
-        day: "Wednesday",
-        vegDish: "Lauki Sabji Gravy Shahi Wali",
-        sideDish: "Kadhai Mushroom",
-        nonVegDish: "Egg Spinach Curry",
-        accompaniment: "Sirka Onion",
-    },
-    {
-        day: "Thursday",
-        vegDish: "Moong Masoor Dal",
-        sideDish: "Dum Aloo",
-        nonVegDish: "Chicken Mughlai",
-        accompaniment: "Tomato and Onion Chutney",
-    },
-    {
-        day: "Friday",
-        vegDish: "Sweet Potato Chickpea Curry",
-        sideDish: "Paneer Corn Masala",
-        nonVegDish: "Chicken Saag Curry",
-        accompaniment: "Punjabi Kachumber Salad",
-    },
-];
+// const weeklySpecials = [
+//     {
+//         day: "Monday",
+//         vegDish: "Kadai Paneer Gravy",
+//         sideDish: "Aloo Methi",
+//         nonVegDish: "Delhi Nihari",
+//         accompaniment: "Cucumber and Mint Raita",
+//     },
+//     {
+//         day: "Tuesday",
+//         vegDish: "Pancharatna Dal",
+//         sideDish: "Sabji Pakoda",
+//         nonVegDish: "Chicken Korma Curry",
+//         accompaniment: "Carrot and Peanut Salad",
+//     },
+//     {
+//         day: "Wednesday",
+//         vegDish: "Lauki Sabji Gravy Shahi Wali",
+//         sideDish: "Kadhai Mushroom",
+//         nonVegDish: "Egg Spinach Curry",
+//         accompaniment: "Sirka Onion",
+//     },
+//     {
+//         day: "Thursday",
+//         vegDish: "Moong Masoor Dal",
+//         sideDish: "Dum Aloo",
+//         nonVegDish: "Chicken Mughlai",
+//         accompaniment: "Tomato and Onion Chutney",
+//     },
+//     {
+//         day: "Friday",
+//         vegDish: "Sweet Potato Chickpea Curry",
+//         sideDish: "Paneer Corn Masala",
+//         nonVegDish: "Chicken Saag Curry",
+//         accompaniment: "Punjabi Kachumber Salad",
+//     },
+// ];
 
 const PunjabiNonVegMenu = () => {
+    const {data:punjabiNonVegDishes,isLoading:isLoadingNonVeg,isError:isNonVegError}=useGetAllDishes({vendor:"fieryGrills",category:"non-vegetarian"})
+    const {data:punjabiVegDishes,isLoading:isLoadingVeg,isError:isVegError}=useGetAllDishes({vendor:"fieryGrills",category:"vegetarian"})
+    const {data:punjabiSalads,isLoading:isLoadingSalads,isError:isSaladsError}=useGetAllDishes({vendor:"fieryGrills",category:"salad"})
+
+    const isLoading=isLoadingNonVeg || isLoadingSalads || isLoadingVeg
+    const isError=isNonVegError || isSaladsError || isVegError
+
+    if(isLoading){return <div>Loading</div>}
+    if(isError){return <div>Have error</div>}
+
     return (
-        <div className="min-h-screen bg-amber-50 text-slate-800">
+        <div className="min-h-screen bg-gray-50 text-slate-800">
             {/* Hero Section */}
             <div className="flex flex-col md:flex-row items-center justify-between px-8 py-16 max-w-6xl mx-auto">
                 <div className="md:w-1/2 mb-10 md:mb-0">
@@ -120,7 +132,7 @@ const PunjabiNonVegMenu = () => {
                 </div>
             </div>
 
-            {/* Non-Veg Menu Section */}
+            {/* Non-Veg Menu Section
             <div className="bg-white py-16">
                 <div className="max-w-6xl mx-auto px-8">
                     <h2 className="text-3xl font-bold text-amber-800 mb-12 text-center">Our Non-Vegetarian Specialties</h2>
@@ -148,8 +160,21 @@ const PunjabiNonVegMenu = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <VegetarianMenuSection />
+            </div> */}
+            <VgAndNonvgMenuSections
+  title="Our Non-Vegetarian Specialties"
+  image="/assets/nonveg.jpeg"
+  dishes={punjabiNonVegDishes}
+  imageFirst={true}
+/>
+
+<VgAndNonvgMenuSections
+  title="Our Vegetarian Specialties"
+  image="/assets/veg1.jpeg"
+  dishes={punjabiVegDishes}
+  imageFirst={false}
+/>
+            {/* <VegetarianMenuSection /> */}
 
             {/* Salads Section */}
             <div className="py-16 px-8">

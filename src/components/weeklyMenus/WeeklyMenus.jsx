@@ -2,6 +2,7 @@ import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 import Card from "./WeeklyCard";
+import FeatureSection from "../Menu/WeeklyMenu/Bottom";
 
 const vegWeeklyMenu = [
     {
@@ -236,7 +237,7 @@ const HorizontalScrollCarousel = () => {
                             <div className="flex gap-4">
                                 {weeklyMenu.map((menu) => (
                                     <div key={menu.id} className="snap-center">
-                                        <Card menu={menu} isMobile={true} />
+                                        <Card menu={menu.sides} isMobile={true} />
                                     </div>
                                 ))}
                             </div>
@@ -256,13 +257,14 @@ const HorizontalScrollCarousel = () => {
                 </div>
                 <div>
                     <div className="absolute bottom-6 w-full text-center">
+                    <FeatureSection/>
                          {/* Date Range */}
                     {/* <p className="text-amber-700 text-sm mb-2">12-March-25 to 18-March-25</p> */}
 
 {/* Saturday Note */}
-{/* <p className="text-xs text-amber-600 italic">
+<p className="text-xs text-amber-600 italic">
     *Saturday meals are optional and available only upon request
-</p> */}
+</p>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaTwitter, FaFacebookF, FaYoutube } from "react-icons/fa";
-import AnimatedButton from "./Buttons/Order";
+
+// import AnimatedButton from "./Buttons/Order";
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden">
+    <div className="relative w-full h-[100vh] overflow-hidden">
       {/* Background image */}
       <motion.img
         initial={{ scale: 1.2, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1 }}
         className="w-full h-full object-cover"
-        src="/assets/hero4.jpg"
+        src="/assets/hero3.png"
         alt="Punjab food tiffin"
       />
 
@@ -38,6 +39,7 @@ const Hero = () => {
         <a href="#" className="text-white text-2xl hover:text-yellow-400 transition">
           <FaYoutube />
         </a>
+
       </motion.div>
 
       {/* Text & Buttons */}
@@ -65,6 +67,8 @@ const Hero = () => {
           </a>
         </div> */}
      
+      <div className="flex justify-start flex-col gap-3 items-start  w-20">
+      </div>
       </motion.div>
     </div>
   );

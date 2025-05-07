@@ -1,3 +1,5 @@
+
+import FeatureSection from "../components/Menu/WeeklyMenu/Bottom";
 import TotalMenuHeading from "../components/TotalMenu/TotalMenuHeading";
 
 import HorizontalScrollCarousel from "../components/weeklyMenus/WeeklyMenus";
@@ -7,21 +9,20 @@ import HorizontalScrollCarousel from "../components/weeklyMenus/WeeklyMenus";
 
 const Example = () => {
   return (
-    <div className="bg-neutral-800">
-      <div className="flex h-24  items-center justify-center">
-      <h1 className="text-2xl md:text-3xl font-playfair tracking-tight  text-white mb-4 ml-4 md:mr-10 md:mb-0 ">
-            Fiery Grills
-          </h1>
+    <div className="bg-[#1C1C1C]">
+      <div className="flex h-26  items-center justify-center">
+      
       </div>
 
       {/* <FoodCard/> */}
-      {/* <div className="flex h-24 md:h-48 items-center justify-center">
+      <div className="flex h-24 md:h-48 items-center justify-center">
         <span className="font-semibold uppercase text-neutral-500">
         Scroll up
         </span>
-        </div> */}
+        </div>
         <TotalMenuHeading/>
-        <HorizontalScrollCarousel />
+        {/* <HorizontalScrollCarousel /> */}
+        
     </div>
   );
 };
