@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import InstagramCard from "../components/Gallery/InstagramCard";
+import InstagramCard from "../../components/Gallery/InstagramCard";
 
 export default function CardList() {
   const [activeCardIndex, setActiveCardIndex] = useState(0);

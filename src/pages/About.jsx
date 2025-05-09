@@ -4,7 +4,7 @@ import OurStory from '../components/About/OurStory'
 import WhyChooseUs from '../components/About/WhyChooseUs'
 import MeetOurTeam from '../components/About/MeetOurTeam.jsx'
 import CallToAction from '../components/About/CallToAction'
-import NewsLetter from '../components/HomePage/About.jsx'
+import NewsLetter from '../components/Home/NewsLetter.jsx'
 
 const About = () => {
   return (

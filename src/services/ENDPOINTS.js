@@ -4,6 +4,10 @@ export const ENDPOINTS={
         SIZES:(categories)=>`/plans/${categories}/sizes`
     },
     MENUS:{
-        DISHES:({vendor,category})=>`/menus/${vendor}/${category}/dishes`
+        DISHES:({vendor,category})=>`/menus/${vendor}/${category}/dishes`,
+        WEEKLYMENU:({vendor,category})=>`/menus/${vendor}/${category}/weeklymenu`
+    },
+    LOCATIONS:{
+        AVAILABLELOCATIONS:(vendor)=>`/locations/${vendor}`
     }
 }

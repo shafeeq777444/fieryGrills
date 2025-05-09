@@ -1,6 +1,6 @@
 const VgAndNonvgMenuSections = ({ title, image, dishes, imageFirst = true }) => {
     return (
-      <div className="bg-white py-16">
+      <div className={`${title=="Our Non-Vegetarian Specialties"?"bg-gray-50":"bg-white"} py-16`}>
         <div className="max-w-6xl mx-auto px-8">
           <h2 className="text-3xl font-bold text-amber-800 mb-12 text-center">{title}</h2>
   

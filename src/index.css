@@ -5,6 +5,15 @@
 @import "tailwindcss";
 
 
+/* 👇 Add this section anywhere after imports */
+.scrollbar-hide-y {
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide-y::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
 
 /* default */
 :root{

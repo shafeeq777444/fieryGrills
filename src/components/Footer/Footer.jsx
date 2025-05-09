@@ -9,12 +9,13 @@ import {
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { IoMailOutline } from "react-icons/io5";
 import { BiSolidFoodMenu } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const links = [
-  { label: "Menu", icon: <BiSolidFoodMenu /> },
-  { label: "About Us", icon: <RiInformationLine /> },
-  { label: "Contact", icon: <RiPhoneLine /> },
-  { label: "Order Now", icon: <RiShoppingBasket2Line /> },
+  { label: "Menu", icon: <BiSolidFoodMenu /> ,href:"menu"},
+  { label: "About Us", icon: <RiInformationLine /> , href:"about"},
+  { label: "Contact", icon: <RiPhoneLine />,href:"" },
+  { label: "Order Now", icon: <RiShoppingBasket2Line /> ,href:""},
 ];
 
 const socialIcons = [
@@ -25,6 +26,7 @@ const socialIcons = [
 ];
 
 export default function Footer() {
+  const navigate=useNavigate()
   return (
     <footer className="bg-[#1E1E1E] text-white font-poppins">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -40,7 +42,11 @@ export default function Footer() {
           <ul className="space-y-3">
             {links.map((item, i) => (
               <li key={i}>
-                <a href="#" className="flex items-center gap-2 text-gray-300 hover:text-primary transition">
+                <a onClick={
+                  ()=>{navigate(item.href)
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }
+                } className="flex items-center cursor-default gap-2 text-gray-300 hover:text-primary hover:text-[#EBB03F] transition">
                   {React.cloneElement(item.icon, { className: "text-[#EBB03F]" })}
                   <span>{item.label}</span>
                 </a>
@@ -82,12 +88,12 @@ export default function Footer() {
             placeholder="Enter your email or phone"
             className="w-full bg-[#2A2A2A] border border-gray-700 rounded-md px-4 py-2 text-white text-sm placeholder:text-white/50 focus:outline-none focus:border-[#EBB03F]"
           />
-          <button className="w-full bg-[#EBB03F] text-[#1E1E1E] font-medium py-2 rounded-md hover:bg-opacity-90 transition">
+          {/* <button className="w-full bg-[#EBB03F] text-[#1E1E1E] font-medium py-2 rounded-md hover:bg-opacity-90 transition">
             Subscribe
-          </button>
-          {/* <button className="w-full border border-[#EBB03F] text-[#EBB03F] font-medium py-2 rounded-md hover:bg-[#EBB03F] hover:text-[#1E1E1E] transition">
-            Get Cover Letter
           </button> */}
+          <button className="w-full border border-[#EBB03F] text-[#EBB03F] font-medium py-1 rounded-md hover:bg-[#EBB03F] hover:text-[#1E1E1E] transition">
+          Subscribe
+          </button>
         </div>
       </div>
     </footer>

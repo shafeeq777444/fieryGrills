@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronRight, Check } from "lucide-react";
 
-const About = () => {
+const NewsLetter = () => {
     const [selectedPlan, setSelectedPlan] = useState("premium");
     const [includeSaturday, setIncludeSaturday] = useState(true);
     const [email, setEmail] = useState("");
@@ -45,4 +45,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default NewsLetter;

@@ -56,7 +56,7 @@ const Navbar = () => {
       ref={navbarRef}
       className={`fixed   top-0 left-0 w-full z-50 px-6 py-4 md:py-6 font-balooTwo  text-white transition-all duration-300 ease-in-out bg-[#1C1C1C]
          ${
-        scrolled ? ' bg-opacity-95 shadow-md py-3 ' : 'shadow-none bg-transparent'
+        scrolled  || location.pathname!="/"  ? ' bg-opacity-95 shadow-md py-3 ' : 'shadow-none bg-transparent'
       } will-change-[transform,opacity]`}
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
@@ -70,9 +70,13 @@ const Navbar = () => {
         >
           <img 
             src={"/assets/logo1.png" }
-            onClick={()=>navigate('/')}
+            onClick={
+              ()=>{navigate('/')
+              window.scrollTo({ top: 0, behavior: 'smooth' })}
+
+            }
             alt="Tiffin Service Logo" 
-            className="h-12 w-12 mr-3 md:h-12 md:w-12 duration-300 transition-all ease-in " 
+            className="h-12 w-12 mr-3 md:h-12 md:w-12 cursor-pointer duration-300 transition-all ease-in " 
           />
         </motion.div>
 
@@ -104,15 +108,17 @@ const Navbar = () => {
                 onClick={(e)=>{
                   e.preventDefault();
                   navigate(item.href)
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
                 }}
                   className={`
+                    cursor-pointer
                     duration-200 transition-all ease-in 
                     ${item.isButton 
-                      ? 'bg-orange-500 hover:bg-[#DB9801]  px-4 py-2 rounded-md' 
-                      : `relative  hover:text-[#DB9801]` 
+                      ? 'bg-orange-500 hover:text-[#EBB03F]  px-4 py-2 rounded-md' 
+                      : `relative  hover:text-[#EBB03F]` 
                     }
                     font-medium  transition-colors duration-300
-                    ${location.pathname === item.href ? 'text-[#DB9801]' : 'text-white'}
+                    ${location.pathname === item.href ? 'text-[#EBB03F]' : 'text-white'}
                   `}
                 >
                   {item.name}

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import CallActions from '../plans/CallActions'
-import Faq from '../plans/Faq'
-import DeliverySchedule from '../plans/ProvideDuration'
-import MealPlanSelector from '../plans/MealPlan'
-import MealPlanDemo from '../plans/MealCategory'
+import CallActions from '../components/plans/CallActions'
+import Faq from '../components/plans/Faq'
+import DeliverySchedule from '../components/plans/ProvideDuration'
+import MealPlanSelector from '../components/plans/MealPlan'
+import MealPlanDemo from '../components/plans/MealCategory'
 import { ChevronDown } from 'lucide-react';
 
 const Plans = () => {

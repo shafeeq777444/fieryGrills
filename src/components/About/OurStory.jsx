@@ -58,30 +58,30 @@ const OurStory = () => {
           <div className="space-y-4">
             <div className="rounded-lg overflow-hidden shadow-md h-48 md:h-64">
               <img
-                src="https://readdy.ai/api/search-image?query=Close-up%2520of%2520traditional%2520Punjabi%2520food%2520being%2520cooked%2520in%2520a%2520clay%2520pot%2520with%2520steam%2520rising%252C%2520showing%2520rich%2520curry%2520with%2520vibrant%2520spices%2520and%2520herbs.%2520Warm%2520lighting%2520highlights%2520the%2520texture%2520and%2520colors%2520of%2520the%2520dish.%2520Professional%2520food%2520photography%2520with%2520shallow%2520depth%2520of%2520field.&width=600&height=800&seq=2&orientation=portrait"
+                src="/assets/about/about-img1.jpg"
                 alt="Traditional cooking"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             <div className="rounded-lg overflow-hidden shadow-md h-48 md:h-64">
               <img
-                src="https://readdy.ai/api/search-image?query=Hands%2520kneading%2520traditional%2520Indian%2520bread%2520dough%2520on%2520a%2520wooden%2520surface%2520with%2520flour%2520dusting.%2520The%2520image%2520captures%2520the%2520artisanal%2520process%2520of%2520making%2520roti%2520or%2520naan%2520in%2520a%2520rustic%2520kitchen%2520setting%2520with%2520warm%2520ambient%2520lighting.%2520Professional%2520food%2520photography%2520style.&width=600&height=800&seq=3&orientation=portrait"
+                src="/assets/about/about-img2.jpg"
                 alt="Making bread"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
             </div>
           </div>
           <div className="space-y-4 pt-8">
             <div className="rounded-lg overflow-hidden shadow-md h-48 md:h-64">
               <img
-                src="https://readdy.ai/api/search-image?query=Beautifully%2520arranged%2520Punjabi%2520thali%2520%28meal%2520platter%29%2520with%2520various%2520dishes%2520including%2520dal%252C%2520paneer%252C%2520roti%252C%2520rice%252C%2520and%2520raita.%2520The%2520food%2520is%2520presented%2520on%2520traditional%2520metal%2520plates%2520with%2520small%2520bowls%252C%2520garnished%2520with%2520fresh%2520herbs.%2520Professional%2520food%2520photography%2520with%2520overhead%2520angle.&width=600&height=800&seq=4&orientation=portrait"
+                src="/assets/about/about-img3.jpg"
                 alt="Punjabi thali"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             <div className="rounded-lg overflow-hidden shadow-md h-48 md:h-64">
               <img
-                src="https://readdy.ai/api/search-image?query=A%2520smiling%2520Indian%2520chef%2520in%2520traditional%2520attire%2520adding%2520finishing%2520touches%2520to%2520a%2520colorful%2520Punjabi%2520dish.%2520The%2520chef%2520is%2520working%2520in%2520a%2520warm%252C%2520well-lit%2520kitchen%2520with%2520traditional%2520elements%2520visible%2520in%2520the%2520background.%2520Professional%2520portrait%2520photography%2520style%2520with%2520natural%2520lighting.&width=600&height=800&seq=5&orientation=portrait"
+                src="/assets/about/about-img4.jpg"
                 alt="Chef preparing food"
                 className="w-full h-full object-cover object-top"
               />
