@@ -9,5 +9,11 @@ export const ENDPOINTS={
     },
     LOCATIONS:{
         AVAILABLELOCATIONS:(vendor)=>`/locations/${vendor}`
+    },
+    SUBSCRIBERS:{
+        ADDSUBSCRIBER:'/subscribers/addSubscriber'
+    },
+    ORDERPARTICIPANT:{
+        ADDPARTICIPANT:'/orderParticipant/add'
     }
 }

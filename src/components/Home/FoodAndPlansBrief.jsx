@@ -1,52 +1,64 @@
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function FoodAndPlansBrief() {
+  const navigate= useNavigate()
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 space-y-24">
+    <div className="max-w-7xl mx-auto px-4 py-16 space-y-24">
       {/* Punjabi Menu Section */}
-      <div className="flex flex-col md:flex-row items-center gap-8">
-        <div className="w-full  md:w-1/2">
-          <img 
-            src="/assets/home/menuBrief.jpg" 
-            alt="Punjabi dish with curry in a metal bowl alongside naan bread and rice" 
-            className="rounded-lg w-full h-40 h-auto shadow-md"
-          />
-        </div>
-        <div className="w-full md:w-1/2 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Explore Our Punjabi Menu
-          </h2>
-          <p className="text-gray-700 text-lg">
-            Discover our extensive range of authentic Punjabi dishes, from 
-            butter chicken to dal makhani, each prepared with traditional
-            spices and love.
+      <div className="flex flex-col md:flex-row items-center gap-12">
+        {/* Text Content */}
+        <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
+          <h2 className="text-3xl font-bold text-red-800">Explore Our Punjabi Menu</h2>
+          <p className="text-gray-700 text-lg text-justify">
+            Indulge in the rich and diverse flavors of Punjabi cuisine. From the
+            world-famous butter chicken and creamy dal makhani to aromatic
+            biryanis and crispy parathas, our dishes are crafted with the finest
+            ingredients and traditional spices. Experience the authentic taste of
+            Punjab, served with love and passion.
           </p>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-full inline-flex items-center mt-4 transition-colors">
+          <button onClick={()=>{navigate('/menu')
+                window.scrollTo({top:0,behavior:"smooth"})}}
+           className="bg-red-800 hover:bg-red-900 text-white font-bold px-6 py-3 rounded-full inline-flex items-center transition duration-300">
             View Menu <ArrowRight className="ml-2 h-5 w-5" />
           </button>
+        </div>
+
+        {/* Image */}
+        <div className="w-full md:w-1/2">
+          <img 
+            src="/assets/home/food/a1.jpeg" 
+            alt="Punjabi dish with curry in a metal bowl alongside naan bread and rice" 
+            className="rounded-lg w-full h-120 object-cover shadow-md"
+          />
         </div>
       </div>
 
       {/* Meal Plans Section */}
-      <div className="flex flex-col md:flex-row-reverse items-center gap-8">
-        <div className="w-full md:w-1/2">
-          <img 
-            src="/api/placeholder/600/500" 
-            alt="Various healthy meal prep bowls with vegetables and proteins" 
-            className="rounded-lg w-full h-auto shadow-md"
-          />
-        </div>
-        <div className="w-full md:w-1/2 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Flexible Meal Plans
-          </h2>
-          <p className="text-gray-700 text-lg">
-            Choose from daily, weekly, or monthly tiffin plans. Customizable
-            options available to suit your preferences and dietary needs.
+      <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+        {/* Text Content */}
+        <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
+          <h2 className="text-3xl font-bold text-red-800">Flexible Meal Plans</h2>
+          <p className="text-gray-700 text-lg text-justify">
+            Choose from daily, weekly, or monthly tiffin plans, each designed to deliver fresh, delicious, and nutritious meals 
+            straight to your door. For those who want to try our service first, we also provide testing food options—perfect for 
+            a one-day trial to experience the quality of our meals before committing to a full plan. Customizable options are available 
+            to suit your preferences and dietary needs, ensuring a personalized dining experience that meets your lifestyle.
           </p>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-full inline-flex items-center mt-4 transition-colors">
+          <button onClick={()=>{navigate('/plans')
+                window.scrollTo({top:0,behavior:"smooth"})}}
+           className="bg-red-800 hover:bg-red-900 text-white font-bold px-6 py-3 rounded-full inline-flex items-center transition duration-300">
             View Plans <ArrowRight className="ml-2 h-5 w-5" />
           </button>
+        </div>
+
+        {/* Image */}
+        <div className="w-full  md:w-1/2">
+          <img 
+            src="/assets/home/food/h1.png" 
+            alt="Various healthy meal prep bowls with vegetables and proteins" 
+            className="rounded-lg w-full h-120 object-cover shadow-md"
+          />
         </div>
       </div>
     </div>

@@ -2,13 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link href="/src/styles.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Favicon that updates based on theme -->
+    <link id="favicon" rel="icon" type="image/png" href="/assets/logo1.png" />
 
-    <title>Vite + React</title>
+    <!-- Styles -->
+    <link href="/src/styles.css" rel="stylesheet" />
+
+    <!-- Responsive Design & Theme Support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+
+    <title>Fiery Grills</title>
+
+    <!-- Script to update logo based on system theme -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const favicon = document.getElementById('favicon');
+        favicon.href = darkMode ? '/assets/logo1.png' : '/assets/logo2.png';
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>

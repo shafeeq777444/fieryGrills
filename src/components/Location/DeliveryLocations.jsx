@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import { useGetLocations } from "../../services/Hooks/useLocations";
+import LocationFeture from "./LocationFeature";
+
 
 mapboxgl.accessToken = "pk.eyJ1Ijoic2hhZmVlcTc3NDQiLCJhIjoiY205bHZnaTlzMDAwMjJxb2lxZzB4ODZkeiJ9.8Omr4NARLyfhzl6gKxGCdQ";
 
@@ -116,21 +118,22 @@ if(isError){<div>Error Ocuured</div>}
         
         {/* Map */}
         <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <div className="text-center py-8 px-4 ">
-          <h2 className="text-2xl md:text-5xl font-bold text-amber-800">
+          {/* <div className="text-center py-8 px-4 ">
+          <h2 className="text-2xl md:text-5xl font-bold text-red-800">
             Available Service Areas
           </h2>
           <p className="text-md text-gray-700 font-medium mt-2">
             Serving authentic Punjabi tiffin across Greater Toronto Area
           </p>
-                </div>
+                </div> */}
           <div className="w-full md:w-full h-[300px] md:h-[60vh] shadow-lg rounded-xl border border-gray-200 overflow-hidden flex flex-col gap-5 bg-transparent">
             <div ref={mapContainerRef} className="w-full h-full" />
           </div>
+         <LocationFeture/>
         </div>
 
         {/* Locations List */}
-        <div className="w-full md:w-1/2 bg-white rounded-xl shadow-lg p-6 max-h-[80vh] overflow-y-auto scrollbar-hide-y">
+        <div className="w-full md:w-1/2 bg-white rounded-xl shadow-lg p-6 max-h-[90vh] overflow-y-auto scrollbar-hide-y">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4  ">
             {availableLocations?.map((loc, i) => (
             <div
@@ -138,7 +141,7 @@ if(isError){<div>Error Ocuured</div>}
             onClick={() => flyToLocation(loc.coords)}
             className="p-4 bg-ternaryWhite shadow-sm transition-all hover:scale-105 duration-300 ease-in-out rounded-xl cursor-pointer"
           >
-            <p className="font-semibold text-gray-700">{loc.name}</p>
+            <p className="font-semibold text-amber-900">{loc.name}</p>
           </div>
             ))}
           </div>

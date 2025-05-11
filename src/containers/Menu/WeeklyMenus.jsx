@@ -209,10 +209,10 @@ const HorizontalScrollCarousel = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-4 md:mb-8"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold text-amber-800 mb-2">
+                        <h2 className="text-3xl md:text-5xl font-bold text-red-800 mb-2">
                             Fiery Grills Weekly Tiffin Menu
                         </h2>
-                        <p className="text-lg text-amber-700">Discover what's cooking throughout the week</p>
+                        <p className="text-lg text-slate-600">Discover what's cooking throughout the week</p>
                     </motion.div>
 
                     {/* Category Toggle Buttons with improved mobile styling */}
@@ -223,12 +223,12 @@ const HorizontalScrollCarousel = () => {
                                     key={category.id}
                                     onClick={() => handleCategoryChange(category.id)}
                                     className={`relative px-4 md:px-6 py-2 md:py-3 rounded-md text-sm font-medium transition-all duration-300 min-w-16 md:min-w-24
-                ${activeCategory === category.id ? "text-white" : "text-gray-700 hover:text-amber-800"}`}
+                ${activeCategory === category.id ? "text-white" : "text-gray-700 hover:text-red-800"}`}
                                 >
                                     {activeCategory === category.id && (
                                         <motion.div
                                             layoutId="activeCategory"
-                                            className="absolute inset-0 bg-amber-600 rounded-md"
+                                            className="absolute inset-0 bg-red-800 rounded-md"
                                             initial={false}
                                             transition={{ type: "spring", duration: 0.6 }}
                                         />

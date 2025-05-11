@@ -13,23 +13,26 @@ const AboutHero = () => {
     />
     <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent z-10" />
     <div className="container mx-auto px-4 py-20 md:py-32 relative z-20">
-      <div className="max-w-2xl">
+      <div className="max-w-3xl">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Who We Are
+        Fiery Grills Punjabi Tiffin
         </h1>
-        <p className="text-sm md:text-md text-white mb-8">
+        <p className="text-sm md:text-md text-white mb-8 max-w-2xl">
           At Punjabi Grills Tiffin Mess, we serve freshly cooked, homely North
           Indian meals with love. Our mission is to bring the taste of
           traditional Punjabi kitchens to your table—healthy, hearty, and
           delivered daily.
         </p>
         <div className="flex flex-wrap gap-4">
-          <button className="bg-primary text-white px-4 py-3  hover:bg-white hover:text-black rounded-sm hover:bg-opacity-90 transition-all shadow-md whitespace-nowrap duration-300 ease-out">
+          {/* <button className="bg-primary text-white px-4 py-3    rounded-sm hover:bg-opacity-90 transition-all shadow-md whitespace-nowrap duration-300 ease-out">
             Our Menu
-          </button>
-          <button className="bg-white    rounded-md y text-primary px-4 py-0 md:px-4 md:py-3 !rounded-button hover:bg-primary  transition-all  whitespace-nowrap border-0">
+          </button> */}
+          {/* <a href="tel:+14373131390">
+          <button className="bg-white  cursor-pointer  rounded-md y text-primary px-4 py-0 md:px-4 md:py-3 !rounded-button hover:bg-primary  transition-all  whitespace-nowrap border-0">
             Contact Us
           </button>
+          </a> */}
+          
         </div>
       </div>
     </div>

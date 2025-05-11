@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-export default function CallButton({color,text,icon}) {
+export default function CallButton({color,text,icon, onClick}) {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
 
       <motion.button
+      onClick={onClick}
         className="flex items-center justify-center  text-white shadow-lg  focus:outline-none"
         initial={{ width: '48px', height: '48px', borderRadius: '50%' }}
         animate={{

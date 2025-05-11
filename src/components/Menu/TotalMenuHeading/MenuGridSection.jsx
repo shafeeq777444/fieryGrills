@@ -6,7 +6,7 @@ const MenuGridSection = ({ title, data = [], columns = 3 }) => {
   return (
     <div  className="py-16 px-8 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-amber-800 mb-12 text-center">
+        <h2 className="text-3xl font-bold text-red-800 mb-12 text-center">
           {title}
         </h2>
         <div

@@ -1,8 +1,9 @@
 import React from "react";
 
-const AnimatedButton = () => {
+const AnimatedButton = ({onClick}) => {
   return (
     <button
+    onClick={onClick}
       className="group relative inline-flex items-center gap-3 rounded-full scale-75 bg-[#89151E] px-4 py-3 hover:scale-80 font-semibold text-white transition-all duration-300 hover:bg-red-900"
     >
       Order Now
@@ -19,6 +20,7 @@ const AnimatedButton = () => {
         />
       </span>
     </button>
+    
   );
 };
 

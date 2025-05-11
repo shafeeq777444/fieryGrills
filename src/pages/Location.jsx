@@ -1,11 +1,16 @@
 import React from 'react'
 import DeliveryLocations from '../components/Location/DeliveryLocations'
+import LocationHero from '../components/Location/HeroLocation'
+import AnimatedOnScroll from '../components/AnimatedScrollerOnWraaper'
+
 
 const Location = () => {
   return (
-    <div>
-       <div className="bg-[#1C1C1C] h-20"></div>
-      <DeliveryLocations/>
+    <div className='bg-white'>
+       <div className="h-20 "></div>
+
+<AnimatedOnScroll><LocationHero/></AnimatedOnScroll>
+<AnimatedOnScroll> <DeliveryLocations/></AnimatedOnScroll>
     </div>
   )
 }

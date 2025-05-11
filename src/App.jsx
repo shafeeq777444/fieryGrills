@@ -12,6 +12,7 @@ import Location from "./pages/Location";
 import About from "./pages/About.jsx";
 import Plans from "./pages/Plans.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
+import  { Toaster } from 'react-hot-toast';
 // import PunjabiGrillUI from "./pages/Gallery.jsx";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     // }
     return (
         <>
+        <Toaster/>
             {/* <Navbar /> */}
             <Routes>
                 <Route path="/" element={<MainLayout/>}>

@@ -38,7 +38,7 @@ const Card = ({ menu, isMobile }) => {
       </div>
 
       <div className="p-3 md:p-4">
-        <h4 className="text-amber-800 text-xl font-semibold mb-2">
+        <h4 className="text-red-800 text-xl font-semibold mb-2">
           {menu.mainDish}
         </h4>
         

@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 const DeliveryBrief = () => {
     const navigate=useNavigate()
   return (
-    <div>
-       <section id="delivery" className="py-16 ">
+    <div className=''>
+       <section id="delivery" className="py-16 p-4 ">
     <div className="container mx-auto px-4">
     <h2 className="text-xl md:text-3xl font-bold text-red-800 mb-4 md:hidden">
                     Delivery Available  Locations
@@ -14,9 +14,9 @@ const DeliveryBrief = () => {
             <div className="md:w-1/2 md:order-2">
                 <div className="rounded-lg overflow-hidden shadow-lg ">
                     <img
-                    src="/assets/home/location.svg"
+                    src="/assets/home/foodCover.png"
                     alt="Delivery Coverage Map"
-                    className="w-full h-full object-cover"
+                    className="w-full h-120 object-cover"
                     />
                 </div>
             </div>
@@ -24,7 +24,7 @@ const DeliveryBrief = () => {
                 <h2 className="text-3xl font-bold text-red-800 mb-4 hidden md:block">
                     Delivery Available Across Major Locations
                 </h2>
-                <p className="text-gray-700 mb-6 text-xs md:text-lg">
+                <p className="text-gray-700 mb-6 text-xs md:text-lg text-justify">
                     We currently deliver Punjabi tiffin services in the Greater
                     Toronto Area, including nearby suburbs and business hubs. Our
                     delivery network ensures that hot and fresh tiffins reach your
