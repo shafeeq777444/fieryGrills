@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const LocationHero = () => {
     const navigate=useNavigate()
   return (
-    <section className="pt-20 relative overflow-hidden ">
+    <section className="pt-20 relative overflow-hidden h-100 md:h-auto">
     <img src='/assets/location/location.jpg'
       className="absolute inset-0 z-0 object-cover object-center w-full h-full"
       style={{
@@ -31,7 +31,7 @@ const LocationHero = () => {
             Our Menu
           </button>
           <a href="tel:+14373131390">
-          <button className="bg-white   rounded-md y text-primary px-4 py-0 md:px-4 md:py-3 !rounded-button hover:bg-primary  transition-all  whitespace-nowrap border-0">
+          <button className="bg-white   rounded-md y text-primary  px-4 py-3 !rounded-button hover:bg-primary  transition-all  whitespace-nowrap border-0">
             Contact Us
           </button>
           </a>

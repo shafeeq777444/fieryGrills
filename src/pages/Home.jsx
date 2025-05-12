@@ -23,7 +23,7 @@ const Home = () => {
   <AnimatedOnScroll><FoodAndPlansBrief /></AnimatedOnScroll>
   <AnimatedOnScroll><DeliveryBrief /></AnimatedOnScroll>
   <AnimatedOnScroll><ScrollingReviewCards /></AnimatedOnScroll>
-  <AnimatedOnScroll><NewsLetter /></AnimatedOnScroll>
+  <NewsLetter />
         </div>
     );
 };

@@ -10,7 +10,7 @@ export default function FoodAndPlansBrief() {
         {/* Text Content */}
         <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-bold text-red-800">Explore Our Punjabi Menu</h2>
-          <p className="text-gray-700 text-lg text-justify">
+          <p className="text-gray-700  text-justify">
             Indulge in the rich and diverse flavors of Punjabi cuisine. From the
             world-famous butter chicken and creamy dal makhani to aromatic
             biryanis and crispy parathas, our dishes are crafted with the finest
@@ -29,7 +29,7 @@ export default function FoodAndPlansBrief() {
           <img 
             src="/assets/home/food/a1.jpeg" 
             alt="Punjabi dish with curry in a metal bowl alongside naan bread and rice" 
-            className="rounded-lg w-full h-120 object-cover shadow-md"
+            className="rounded-lg w-full h-60 md:h-120  object-cover shadow-md"
           />
         </div>
       </div>
@@ -39,7 +39,7 @@ export default function FoodAndPlansBrief() {
         {/* Text Content */}
         <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
           <h2 className="text-3xl font-bold text-red-800">Flexible Meal Plans</h2>
-          <p className="text-gray-700 text-lg text-justify">
+          <p className="text-gray-700  text-justify">
             Choose from daily, weekly, or monthly tiffin plans, each designed to deliver fresh, delicious, and nutritious meals 
             straight to your door. For those who want to try our service first, we also provide testing food options—perfect for 
             a one-day trial to experience the quality of our meals before committing to a full plan. Customizable options are available 
@@ -52,14 +52,14 @@ export default function FoodAndPlansBrief() {
           </button>
         </div>
 
-        {/* Image */}
-        <div className="w-full  md:w-1/2">
+        <div className="w-full  md:w-1/2 ">
           <img 
             src="/assets/home/food/h1.png" 
             alt="Various healthy meal prep bowls with vegetables and proteins" 
-            className="rounded-lg w-full h-120 object-cover shadow-md"
+            className="rounded-lg w-full h-60 md:h-120 object-cover shadow-md"
           />
         </div>
+        {/* Image */}
       </div>
     </div>
   );
