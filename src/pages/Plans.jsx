@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import CallActions from '../components/plans/CallActions'
 import Faq from '../components/plans/Faq'
-import DeliverySchedule from '../components/plans/ProvideDuration'
-import MealPlanSelector from '../components/plans/MealPlan'
-import MealPlanDemo from '../components/plans/MealCategory'
 import { ChevronDown } from 'lucide-react';
+import MealPlanContainer from '../containers/plan/MealPlanContainer'
+import MealPlanExtras from '../components/plans/MealPlanExtras';
+import ExtraFood from '../components/plans/ExtraFood'
 
 const Plans = () => {
   const [showArrow, setShowArrow] = useState(true)
@@ -20,17 +20,12 @@ const Plans = () => {
   }, [])
 
   return (
-    <div className="relative">
+    <div className="relative bg-white">
       <>
-      <div className="flex h-26  items-center justify-center bg-[#1C1C1C]"></div>
-        {/* ...Meta and Link Tags... */}
-
-        {/* Sections */}
-        <MealPlanDemo />
-        <MealPlanSelector />
-        <DeliverySchedule />
-       
-       {/* extra details */}
+      <div className="flex h-24  items-center justify-center bg-[#1C1C1C]"></div>
+        <MealPlanContainer/>
+        <MealPlanExtras/>
+       <ExtraFood/>
         <CallActions />
         <Faq />
       </>

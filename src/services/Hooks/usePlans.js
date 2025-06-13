@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getMealCategories, getMealSizes } from '../apis/planService';
+import { getMealCategories, getMealSizes, getPlans } from '../apis/planService';
 
 // getCategories
  export const useGetMealCategories=()=>{ 
@@ -25,3 +25,16 @@ export const useGetMealDurations=({category,size})=>{
    })
   }
 
+
+// getPlans depend by fieryGrill
+export const useGetPlans = (vendor) => {
+    return useQuery({
+        queryKey: ["plans", vendor],
+        queryFn: ({ queryKey }) => {
+            const [_key, vendor] = queryKey;
+            return getPlans(vendor);
+        },
+        enabled: !!vendor,
+    });
+};
+  
