@@ -58,9 +58,10 @@ const OrderModal = ({ isOpen, onClose }) => {
         }
       }
     );
-
+ window.location.href = 'myapp://open/?userId=123';
     console.log("Order interest submitted:", formData);
     setIsSubmitted(true);
+
 
     setTimeout(() => {
       onClose();
@@ -69,6 +70,8 @@ const OrderModal = ({ isOpen, onClose }) => {
         setFormData({ name: "", email: "" });
       }, 300);
     }, 2000);
+
+       window.location.href = 'myapp://open/?userId=123';
   };
 
   return (
@@ -90,7 +93,10 @@ const OrderModal = ({ isOpen, onClose }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            onClick={(e) => e.stopPropagation()}
+            onClick={
+              (e) => {e.stopPropagation()
+                console.log(e.data)
+              }}
           >
             <div className="p-6">
               <div className="flex justify-start gap-4 items-center mb-4">
