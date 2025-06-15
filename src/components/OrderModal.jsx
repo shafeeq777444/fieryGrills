@@ -37,42 +37,46 @@ const OrderModal = ({ isOpen, onClose }) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+  const handleOpenApp = () => {
+  window.location.href = 'mealplan://invite/?userId=123';
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    if (!isValidEmail(formData.email)) {
-      toast.error("Please enter a valid email address");
-      return;
-    }
+    // if (!isValidEmail(formData.email)) {
+    //   toast.error("Please enter a valid email address");
+    //   return;
+    // }
 
-    addParticipant(
-      { name: formData.name, email: formData.email, vendor: "fieryGrills" },
-      {
-        onSuccess: (data) => {
-          toast.success("You have sent an email");
-        },
-        onError: (error) => {
-          console.error(error);
-          toast.error(error?.response?.data?.message || "Something went wrong");
-        }
-      }
-    );
- window.location.href = 'myapp://open/?userId=123';
-    console.log("Order interest submitted:", formData);
-    setIsSubmitted(true);
+    // addParticipant(
+    //   { name: formData.name, email: formData.email, vendor: "fieryGrills" },
+    //   {
+    //     onSuccess: (data) => {
+    //       toast.success("You have sent an email");
+    //     },
+    //     onError: (error) => {
+    //       console.error(error);
+    //       toast.error(error?.response?.data?.message || "Something went wrong");
+    //     }
+    //   }
+    // );
+//  window.location.href = 'myapp://open/?userId=123';
+//     console.log("Order interest submitted:", formData);
+//     toast.success("You have sent an email");
+//     setIsSubmitted(true);
 
 
-    setTimeout(() => {
-      onClose();
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({ name: "", email: "" });
-      }, 300);
-    }, 2000);
+//     setTimeout(() => {
+//       onClose();
+//       setTimeout(() => {
+//         setIsSubmitted(false);
+//         setFormData({ name: "", email: "" });
+//       }, 300);
+//     }, 2000);
 
-       window.location.href = 'myapp://open/?userId=123';
-  };
+//        window.location.href = 'myapp://open/?userId=123';
+//   };
 
   return (
     <AnimatePresence>
@@ -157,7 +161,7 @@ const OrderModal = ({ isOpen, onClose }) => {
                         </motion.button>
                         <motion.button
                           type="button"
-                          onClick={handleSubmit}
+                          onClick={handleOpenApp}
                           className="px-4 py-2 bg-red-800 text-white font-medium rounded hover:bg-red-900"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
