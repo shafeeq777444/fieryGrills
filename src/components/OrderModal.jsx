@@ -56,7 +56,7 @@ const OrderModal = ({ isOpen, onClose }) => {
   }
 
   // 🔐 Open a temporary window immediately
-  const tempWindow = window.open('https://mealplan-web.vercel.app/#/login', '_blank');
+  const tempWindow = window.open('', '_blank');
 
   try {
     const response = await axios.post(
