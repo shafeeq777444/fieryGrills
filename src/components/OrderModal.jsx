@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useOrderParticipant } from "../services/Hooks/useOrderPartipant";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const backdropVariants = {
   hidden: { opacity: 0 },
@@ -26,7 +27,12 @@ const modalVariants = {
 };
 
 const OrderModal = ({ isOpen, onClose }) => {
-  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: ""
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { mutate: addParticipant } = useOrderParticipant();
 
@@ -37,46 +43,42 @@ const OrderModal = ({ isOpen, onClose }) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-  const handleOpenApp = () => {
-  window.location.href = 'mealplan://invite/?userId=123';
-};
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
+  const handleOpenApp = async () => {
+    // Validation example
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phoneNumber) {
+      toast.error("Please fill out all fields");
+      return;
+    }
 
-    // if (!isValidEmail(formData.email)) {
-    //   toast.error("Please enter a valid email address");
-    //   return;
-    // }
+    if (!isValidEmail(formData.email)) {
+      toast.error("Please enter a valid email");
+      return;
+    }
 
-    // addParticipant(
-    //   { name: formData.name, email: formData.email, vendor: "fieryGrills" },
-    //   {
-    //     onSuccess: (data) => {
-    //       toast.success("You have sent an email");
-    //     },
-    //     onError: (error) => {
-    //       console.error(error);
-    //       toast.error(error?.response?.data?.message || "Something went wrong");
-    //     }
-    //   }
-    // );
-//  window.location.href = 'myapp://open/?userId=123';
-//     console.log("Order interest submitted:", formData);
-//     toast.success("You have sent an email");
-//     setIsSubmitted(true);
+    // You can send data here
+    // addParticipant(formData, { onSuccess, onError });
+  const response=await axios.post("https://myportal.premiumasp.net/api/WebCustomerInfos/Create",{...formData,Vendor:"FG"})
+  if(response?.data?.message==="User already exists"){
+    window.open(`https://mealplan-web.vercel.app/#/login?email=${formData.email}&mobile=${formData.phoneNumber}`, '_blank');
+  }else{
+     window.open(`https://mealplan-web.vercel.app/#/register?email=${formData.email}&mobile=${formData.phoneNumber}&firstName=${formData.firstName}&lastName=${formData.lastName}`, '_blank');
+  }
+  console.log(response.data,response.status)
+    setIsSubmitted(true);
+    toast.success("You have sent an email");
 
+    setTimeout(() => {
+      onClose();
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ firstName: "", lastName: "", email: "", phoneNumber: "" });
+      }, 300);
+    }, 2000);
 
-//     setTimeout(() => {
-//       onClose();
-//       setTimeout(() => {
-//         setIsSubmitted(false);
-//         setFormData({ name: "", email: "" });
-//       }, 300);
-//     }, 2000);
-
-//        window.location.href = 'myapp://open/?userId=123';
-//   };
+    // Launch app link
+    // window.location.href = 'myapp://open/?userId=123';
+  };
 
   return (
     <AnimatePresence>
@@ -97,10 +99,7 @@ const OrderModal = ({ isOpen, onClose }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            onClick={
-              (e) => {e.stopPropagation()
-                console.log(e.data)
-              }}
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6">
               <div className="flex justify-start gap-4 items-center mb-4">
@@ -117,25 +116,42 @@ const OrderModal = ({ isOpen, onClose }) => {
                     transition={{ duration: 0.2 }}
                   >
                     <p className="mb-6 text-gray-600 text-sm">
-                      Enter your name and email to access our order section
+                      Enter your details to access our order section
                     </p>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                          Name
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
+                          First Name
                         </label>
                         <input
                           type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
+                          id="firstName"
+                          name="firstName"
+                          value={formData.firstName}
                           onChange={handleChange}
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-0"
-                          placeholder="Your Name"
+                          className="shadow border rounded w-full py-2 px-3 text-gray-700"
+                          placeholder="Your First Name"
                           required
                         />
                       </div>
-                      <div className="mb-6">
+
+                      <div>
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="lastName">
+                          Last Name
+                        </label>
+                        <input
+                          type="text"
+                          id="lastName"
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          className="shadow border rounded w-full py-2 px-3 text-gray-700"
+                          placeholder="Your Last Name"
+                          required
+                        />
+                      </div>
+
+                      <div>
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                           Email
                         </label>
@@ -145,11 +161,28 @@ const OrderModal = ({ isOpen, onClose }) => {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-0"
+                          className="shadow border rounded w-full py-2 px-3 text-gray-700"
                           placeholder="your.email@example.com"
                           required
                         />
                       </div>
+
+                      <div>
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phoneNumber">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="phoneNumber"
+                          name="phoneNumber"
+                          value={formData.phoneNumber}
+                          onChange={handleChange}
+                          className="shadow border rounded w-full py-2 px-3 text-gray-700"
+                          placeholder="+91 9876543210"
+                          required
+                        />
+                      </div>
+
                       <div className="flex justify-end">
                         <motion.button
                           type="button"
@@ -165,7 +198,12 @@ const OrderModal = ({ isOpen, onClose }) => {
                           className="px-4 py-2 bg-red-800 text-white font-medium rounded hover:bg-red-900"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          disabled={!formData.name || !formData.email}
+                          disabled={
+                            !formData.firstName || 
+                            !formData.lastName || 
+                            !formData.email || 
+                            !formData.phoneNumber
+                          }
                         >
                           Submit
                         </motion.button>
@@ -193,7 +231,7 @@ const OrderModal = ({ isOpen, onClose }) => {
                     </motion.div>
                     <h3 className="text-xl font-bold text-gray-800 mb-2">Thank You!</h3>
                     <p className="text-gray-600">
-                      We've received your information and will contact you soon about our tiffin service.
+                      We've received your info and will contact you soon.
                     </p>
                   </motion.div>
                 )}
