@@ -44,30 +44,50 @@ const OrderModal = ({ isOpen, onClose }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleOpenApp = async () => {
-    // Validation example
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phoneNumber) {
-      toast.error("Please fill out all fields");
-      return;
-    }
-
-    if (!isValidEmail(formData.email)) {
-      toast.error("Please enter a valid email");
-      return;
-    }
-
-    // You can send data here
-    // addParticipant(formData, { onSuccess, onError });
-  const response=await axios.post("https://myportal.premiumasp.net/api/WebCustomerInfos/Create",{...formData,Vendor:"FG"})
-  if(response?.data?.message==="User already exists"){
-    window.open(`https://mealplan-web.vercel.app/#/login?email=${formData.email}&mobile=${formData.phoneNumber}`, '_blank');
-  }else{
-     window.open(`https://mealplan-web.vercel.app/#/register?email=${formData.email}&mobile=${formData.phoneNumber}&firstName=${formData.firstName}&lastName=${formData.lastName}`, '_blank');
+ const handleOpenApp = async () => {
+  if (!formData.firstName || !formData.lastName || !formData.email || !formData.phoneNumber) {
+    toast.error("Please fill out all fields");
+    return;
   }
-  console.log(response.data,response.status)
-    setIsSubmitted(true);
-    toast.success("You have sent an email");
 
+  if (!isValidEmail(formData.email)) {
+    toast.error("Please enter a valid email");
+    return;
+  }
+
+  // 🔐 Open a temporary window immediately
+  const tempWindow = window.open('', '_blank');
+
+  try {
+    const response = await axios.post(
+      "https://myportal.premiumasp.net/api/WebCustomerInfos/Create",
+      { ...formData, Vendor: "FG" }
+    );
+
+    const queryParams = new URLSearchParams({
+      email: formData.email,
+      phone: formData.phoneNumber,
+      vendor: 'FG',
+    });
+
+    let url = 'https://mealplan-web.vercel.app/#/login?' + queryParams.toString();
+
+    if (response?.data?.message !== "User already exists") {
+      queryParams.set('firstName', formData.firstName);
+      queryParams.set('lastName', formData.lastName);
+      url = 'https://mealplan-web.vercel.app/#/register?' + queryParams.toString();
+    }
+
+    // ✅ Set location of the new window
+    if (tempWindow) {
+      tempWindow.location.href = url;
+    } else {
+      // fallback in same tab
+      window.location.href = url;
+    }
+
+    toast.success("You have sent an email");
+    setIsSubmitted(true);
     setTimeout(() => {
       onClose();
       setTimeout(() => {
@@ -75,10 +95,13 @@ const OrderModal = ({ isOpen, onClose }) => {
         setFormData({ firstName: "", lastName: "", email: "", phoneNumber: "" });
       }, 300);
     }, 2000);
-
-    // Launch app link
-    // window.location.href = 'myapp://open/?userId=123';
-  };
+  } catch (err) {
+    toast.error("Something went wrong!");
+    if (tempWindow) {
+      tempWindow.close();
+    }
+  }
+};
 
   return (
     <AnimatePresence>
