@@ -7,6 +7,7 @@ import NewsLetter from "../components/Home/NewsLetter.jsx";
 import DeliveryBrief from "../components/Home/DeliveryBrief.jsx";
 import FoodAndPlansBrief from "../components/Home/FoodAndPlansBrief.jsx";
 import AnimatedOnScroll from "../components/AnimatedScrollerOnWraaper.jsx";
+import Offers from "../containers/Offers.jsx";
 
 // import GlowButton from '../components/Buttons/GlowButton'
 // import SwipableCardCarousel from '../components/Home/Gallery.js'
@@ -19,6 +20,7 @@ const Home = () => {
     return (
         <div className="bg-white"> 
           <Hero />
+  <AnimatedOnScroll><Offers /></AnimatedOnScroll>
   <AnimatedOnScroll><AboutBrief /></AnimatedOnScroll>
   <AnimatedOnScroll><FoodAndPlansBrief /></AnimatedOnScroll>
   <AnimatedOnScroll><DeliveryBrief /></AnimatedOnScroll>

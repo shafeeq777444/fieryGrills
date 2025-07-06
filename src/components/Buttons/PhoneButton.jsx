@@ -8,7 +8,7 @@ export default function CallButton({color,text,icon, onClick}) {
 
       <motion.button
       onClick={onClick}
-        className="flex items-center justify-center  text-white shadow-lg  focus:outline-none"
+        className="flex items-center justify-center  text-white shadow-lg  focus:outline-none "
         initial={{ width: '48px', height: '48px', borderRadius: '50%' }}
         animate={{
           width: isHovered ? '160px' : '48px',

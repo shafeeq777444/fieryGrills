@@ -27,7 +27,7 @@ const MainLayout = () => {
       />
       <Outlet/>
       <motion.div
-                className="fixed bottom-8 left-8 flex p-2 flex-col gap-6   "
+                className="fixed bottom-8 left-8 flex p-2 flex-col gap-6 z-30  "
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1, duration: 0.6}}
